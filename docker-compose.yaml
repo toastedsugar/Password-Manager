@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  server:
+    # Build the image using the dockerfile in this directory
+    build: .
+    # map port 5000 on localhost to 5000 in container
+    ports:
+      - "8080:8080"
+     # Configure environment variables 
+    environment:
+      FLASK_APP: app.py
+    # Mount the current directory inside the /app directory inside the container so changes to the code are reflected inside the container without rebuilding.
+    volumes:
+      - .:/app
