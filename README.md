@@ -9,3 +9,38 @@ The purose of this application is as follows:
 2. Implement as many Azure services as possible to demonstrate my understanding of DevOPs and cloud computing.
 3. Build a modern devops pipeline to automate deployments.
 
+## Pipeline
+
+Update the source code
+
+        |
+        v
+
+Push to development
+
+        |
+        v
+
+Once features are ready, push to production
+
+        |
+        v
+
+Run github actions 
+    run unit tests, 
+    build docker image
+    push to docker hub.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
