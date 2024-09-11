@@ -1,13 +1,16 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-import Auth from "./components/Auth"
+import Home from './components/Home'
+import Login from './components/Login'
 
-export default function App() {
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
 
-    return (
-        <div>
-            This is the frontend!!
-        </div>
-    )
+  return (
+    <>
+      {isLoggedIn ? <Home /> : <Login />}
+    </>
+  )
 }
+
+export default App

@@ -11,12 +11,12 @@ The purose of this application is as follows:
 
 ## Pipeline
 
-Update the source code
+Update the source code. Python server and React frontend are in one docker container, data is stored in Google Firebase Firestore.
 
         |
         v
 
-Push to development
+Push to development branch.
 
         |
         v
@@ -30,6 +30,11 @@ Run github actions
     run unit tests, 
     build docker image
     push to docker hub.
+
+        |
+        v
+
+Automatically deploy to DigitalOcean droplet.  
 
 
 

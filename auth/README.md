@@ -1,0 +1,1 @@
+I decided to keep it simple by not including referesh tokens. This may cause security issues but that can be a feature for later.
