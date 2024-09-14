@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import axios from "axios"
+
 export default function Login() {
 
     const [login, setLogin] = useState<boolean>(true)
@@ -12,13 +14,21 @@ export default function Login() {
     console.log(password)
 
 
-    const HandleSubmit = (event:any) => {
+    const HandleSubmit = async (event:any) => {
         event?.preventDefault()
         console.log('Submitting')
 
         switch (login) {
             case true:
                 // Submit login
+                await axios.post('http://localhost:8080/auth/login', {
+                    login: login, 
+                    password: password
+                }).then(
+                    (response) => console.log(response)
+                ).catch(
+                    (error) => console.log(error)
+                )
                 break;
             case false:
                 // Submit register

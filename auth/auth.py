@@ -10,7 +10,7 @@ AuthBlueprint = Blueprint("auth", __name__, url_prefix="/auth")
 # Before the blueprint, check if user exists. If not, return error.
 
 # Handle register 
-@AuthBlueprint.route("/register", methods=["GET"])
+@AuthBlueprint.route("/register", methods=["POST"])
 def Register():
     # Extract username and password from the request
     # Hash the password with a salt
@@ -22,7 +22,7 @@ def Register():
 
 
 # Handle  login here
-@AuthBlueprint.route("/login", methods=["GET"])
+@AuthBlueprint.route("/login", methods=["POST"])
 def Login():
     # Extract username and password from the request
     # Check if username exists in database. If user does not exist return error, otherwise look up username, hashed password and salt.
@@ -32,7 +32,7 @@ def Login():
     return "Trying to login!"
     
     
-@AuthBlueprint.route("/register", methods=["GET"])
+@AuthBlueprint.route("/logout", methods=["POST"])
 def Logout():
     # Remove access and refresh tokens from database
     return "Logged out!"
