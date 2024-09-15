@@ -15,7 +15,7 @@ CORS(app)
 
 app.register_blueprint(auth.AuthBlueprint)
 
-# Serve the combiled React frontend build here
+# Serve the compiled React frontend build here
 @app.route("/")
 def home():
     return app.send_static_file("index.html")

@@ -1,3 +1,4 @@
+import sys
 from flask import Blueprint, request
 import functools
 import bcrypt
@@ -13,6 +14,10 @@ AuthBlueprint = Blueprint("auth", __name__, url_prefix="/auth")
 @AuthBlueprint.route("/register", methods=["POST"])
 def Register():
     # Extract username and password from the request
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
     # Hash the password with a salt
     # Generate access token and refresh token
     # Create new <User> and store the username, hashed password, salt, refresh token and access token
@@ -25,6 +30,11 @@ def Register():
 @AuthBlueprint.route("/login", methods=["POST"])
 def Login():
     # Extract username and password from the request
+    # print(request.json, file=sys.stderr)
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+
     # Check if username exists in database. If user does not exist return error, otherwise look up username, hashed password and salt.
     # Compare hashed password with extracted password. 
     # If match, generate access token jwt containing username and timestamp.
